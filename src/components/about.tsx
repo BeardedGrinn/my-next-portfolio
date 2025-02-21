@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { FadeInSection } from "./fade-in-section"
 
 export default function About() {
@@ -19,9 +20,11 @@ export default function About() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
+            <Image
                 src="https://scontent.fbhx1-1.fna.fbcdn.net/v/t39.30808-6/448589895_10161059701928954_1727753282008410826_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=bJ7sU-QjB4oQ7kNvgF1P19s&_nc_zt=23&_nc_ht=scontent.fbhx1-1.fna&_nc_gid=ALRe6vD6G_uN0ooiC2JiQlV&oh=00_AYB2wlcPFvomA_Y7KiIeHwIVRA_lHplF0YYfsDaD4roS5w&oe=67BE3BE9"
                 alt="Profile"
+                width={256}
+                height={256}
                 className="w-64 h-64 rounded-full"
               />
             </div>

@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { FadeInSection } from "./fade-in-section"
 import { GithubIcon, ExternalLinkIcon } from "./icons"
@@ -38,9 +39,11 @@ export default function Projects() {
             {projects.map((project, index) => (
               <div key={index} className="bg-black/40 rounded-lg overflow-hidden">
                 <div>
-                  <img
+                  <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
+                    width={400}
+                    height={200}
                     className="h-48 w-full object-cover"
                   />
                 </div>

@@ -1,26 +1,3 @@
-// import React from 'react';
-// import Head from 'next/head';
-// import Navbar from '../components/Navbar/navbar';
-
-// const HomePage: React.FC = () => {
-//   return (
-//     <div>
-//       <Head>
-//         <title>My Next.js Portfolio</title>
-//         <meta name="description" content="My portfolio built with Next.js" />
-//         <link rel="icon" href="/favicon.ico" />
-//       </Head>
-//       <Navbar />
-//       <main>
-//         <h1>Welcome to My Portfolio</h1>
-//         <p>This is the homepage of my portfolio built with Next.js.</p>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default HomePage;
-
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Projects from "@/components/projects"

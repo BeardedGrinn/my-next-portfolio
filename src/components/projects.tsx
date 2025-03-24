@@ -1,34 +1,51 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { FadeInSection } from "./fade-in-section"
 import { GithubIcon, ExternalLinkIcon } from "./icons"
 
+interface Project {
+  title: string
+  description: string
+  image: string
+  github: string
+  demo: string
+  languages: string[]
+}
+
 export default function Projects() {
-  const projects = [
-    {
-      title: "Project 1",
-      description: "A full-stack web application built with Next.js and TypeScript.",
-      image: "/placeholder.svg?height=200&width=400",
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Project 2",
-      description: "An e-commerce platform with real-time updates and cart functionality.",
-      image: "/placeholder.svg?height=200&width=400",
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Project 3",
-      description: "A responsive dashboard with data visualization and analytics.",
-      image: "/placeholder.svg?height=200&width=400",
-      github: "#",
-      demo: "#",
-    },
-  ]
+  const [projects, setProjects] = useState<Project[]>([])
+
+  useEffect(() => {
+    async function fetchProjects() {
+      const response = await fetch("https://api.github.com/users/BeardedGrinn/repos")
+      const data = await response.json()
+      const sortedData = data.sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+      const recentRepos = sortedData.slice(0, 6)
+
+      const projectsWithLanguages = await Promise.all(
+        recentRepos.map(async (repo: any) => {
+          const languagesResponse = await fetch(repo.languages_url)
+          const languagesData = await languagesResponse.json()
+          const languages = Object.keys(languagesData)
+          return {
+            title: repo.name,
+            description: repo.description,
+            image: "/placeholder.svg?height=200&width=400", // Replace with actual image if available
+            github: repo.html_url,
+            demo: repo.homepage || repo.html_url,
+            languages,
+          }
+        })
+      )
+
+      setProjects(projectsWithLanguages)
+    }
+
+    fetchProjects()
+  }, [])
 
   return (
     <section id="projects" className="min-h-screen py-20">
@@ -50,7 +67,7 @@ export default function Projects() {
                 <div className="p-4">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="mb-4 text-gray-300">{project.description}</p>
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 mb-4">
                     <Link
                       href={project.github}
                       className="flex items-center space-x-2 hover:text-blue-400 transition-colors"
@@ -65,6 +82,13 @@ export default function Projects() {
                       <ExternalLinkIcon />
                       <span>Demo</span>
                     </Link>
+                  </div>
+                  <div className="flex flex-wrap space-x-2">
+                    {project.languages.map((language, langIndex) => (
+                      <span key={langIndex} className="bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                        {language}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

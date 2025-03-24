@@ -16,13 +16,13 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="#projects" className="text-white hover:text-primary transition-colors">
-              Projects
+            <Link href="#skills" className="text-white hover:text-primary transition-colors">
+              Skills
             </Link>
           </li>
           <li>
-            <Link href="#updates" className="text-white hover:text-primary transition-colors">
-              Updates
+            <Link href="#projects" className="text-white hover:text-primary transition-colors">
+              Projects
             </Link>
           </li>
           <li>

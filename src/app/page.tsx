@@ -1,9 +1,10 @@
+import Navigation from "@/components/navigation"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Projects from "@/components/projects"
-import Updates from "@/components/updates"
+import Skills from "@/components/skills"
 import Contact from "@/components/contact"
-import Navigation from "@/components/navigation"
+
 
 export default function Home() {
   return (
@@ -13,8 +14,8 @@ export default function Home() {
         <div className="container mx-auto px-2">
           <Hero />
           <About />
+          <Skills />
           <Projects />
-          <Updates />
           <Contact />
         </div>
       </div>

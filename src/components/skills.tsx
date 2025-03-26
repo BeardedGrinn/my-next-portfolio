@@ -2,7 +2,7 @@
 
 import { FadeInSection } from "./fade-in-section"
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGit, FaGithub } from "react-icons/fa"
-import { SiTypescript, SiNextdotjs, SiTailwindcss, SiExpress, SiPostgresql, SiJest, SiVercel, SiVite, SiFigma, SiJson, SiVitest } from "react-icons/si"
+import { SiTypescript, SiNextdotjs, SiTailwindcss, SiExpress, SiPostgresql, SiJest, SiVercel, SiVite, SiFigma, SiJson, SiVitest, SiSentry } from "react-icons/si"
 
 const skills = [
     { name: "HTML", icon: <FaHtml5 /> },
@@ -23,6 +23,7 @@ const skills = [
     { name: "GitHub", icon: <FaGithub /> },
     { name: "Figma", icon: <SiFigma /> },
     { name: "JSON", icon: <SiJson /> },
+    { name: "Sentry", icon: <SiSentry /> },
 ]
 
 export default function Skills() {

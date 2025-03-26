@@ -33,7 +33,7 @@ export default function Projects() {
           return {
             title: repo.name,
             description: repo.description,
-            image: "/placeholder.svg?height=200&width=400", // Replace with actual image if available
+            image: repo.image_url || "/images/code.png?height=200&width=400", // Replace with actual image if available
             github: repo.html_url,
             demo: repo.homepage || repo.html_url,
             languages,
